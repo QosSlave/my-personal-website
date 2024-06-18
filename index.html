@@ -72,26 +72,15 @@
         .section p {
             margin: 1rem 0;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px; /* 控制图片之间的空隙 */
-            justify-content: center;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .gallery img {
-            width: calc(50% - 10px); /* 图片宽度为容器的一半，减去一半的空隙 */
+        .portfolio img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px; /* 添加圆角 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
-            transition: transform 0.3s; /* 添加过渡效果 */
+            border: 2px solid #333;
+            margin: 1rem 0;
+            transition: transform 0.3s;
         }
-
-        .gallery img:hover {
-            transform: scale(1.05); /* 鼠标悬停时放大 */
+        .portfolio img:hover {
+            transform: scale(1.05);
         }
         .contact a {
             color: #333;
@@ -163,3 +152,4 @@
 </body>
 </html>
 
+<h2>New Content</h2>
