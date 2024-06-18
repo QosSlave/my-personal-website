@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人网页</title>
+    <title>媚黑婊子乐园</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,15 +72,26 @@
         .section p {
             margin: 1rem 0;
         }
-        .portfolio img {
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* 控制图片之间的空隙 */
+            justify-content: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .gallery img {
+            width: calc(50% - 10px); /* 图片宽度为容器的一半，减去一半的空隙 */
             max-width: 100%;
             height: auto;
-            border: 2px solid #333;
-            margin: 1rem 0;
-            transition: transform 0.3s;
+            border-radius: 10px; /* 添加圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+            transition: transform 0.3s; /* 添加过渡效果 */
         }
-        .portfolio img:hover {
-            transform: scale(1.05);
+
+        .gallery img:hover {
+            transform: scale(1.05); /* 鼠标悬停时放大 */
         }
         .contact a {
             color: #333;
@@ -113,7 +124,7 @@
     </header>
     <nav>
         <a href="#about">关于我</a>
-        <a href="#portfolio">作品集</a>
+        <a href="#portfolio">最爱作品集</a>
         <a href="#contact">联系我</a>
     </nav>
     <div class="container">
@@ -122,8 +133,8 @@
             <p>你好！我是Qos_Slave，一个媚黑婊子。我对BBC(Big Black Cock)非常感兴趣。</p>
         </section>
         <section id="portfolio" class="section">
-            <h2>作品集</h2>
-            <p>以下是我一些作品的展示：</p>
+            <h2>最爱作品集</h2>
+            <p>以下是我喜欢的一些作品的展示：</p>
             <div class="portfolio">
                 <img src="project1.jpg" alt="项目1">
                 <img src="project2.jpg" alt="项目2">
