@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>媚黑婊子乐园</title>
+    <title>媚黑是女人的天性</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,8 +11,8 @@
             margin: 0;
             padding: 0;
             background: url('spade-queen.jpg') repeat;
-            background-size: 200px 200px; /* 调整背景图像大小 */
-            background-color: rgba(255, 255, 255, 0.8); /* 增加浅淡效果 */
+            background-size: 200px 200px;
+            background-color: rgba(255, 255, 255, 0.8);
             color: #333;
             position: relative;
             z-index: 1;
@@ -25,7 +25,7 @@
             right: 0;
             bottom: 0;
             background: inherit;
-            opacity: 0.1; /* 调整背景透明度，使其浅淡 */
+            opacity: 0.1;
             z-index: -1;
         }
         header {
@@ -45,65 +45,101 @@
             padding: 1rem 0;
             backdrop-filter: blur(5px);
         }
-        nav a {
-            color: #fff;
+        .toggle-button {
             margin: 0 1rem;
-            text-decoration: none;
-            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            background: #ff9800;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        nav a:hover {
-            color: #f0c040;
+        .toggle-button:hover {
+            background: #ff5722;
+            transform: scale(1.05);
         }
         .container {
             max-width: 800px;
             margin: 2rem auto;
             padding: 0 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
         }
         .section {
             margin-bottom: 2rem;
+            display: none;
         }
-        .section h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
+        .section.visible {
+            display: block;
         }
-        .section p {
-            margin: 1rem 0;
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            justify-content: space-between;
         }
-        .portfolio img {
-            max-width: 100%;
+        .gallery img {
+            width: calc(33.333% - 10px);
             height: auto;
-            border: 2px solid #333;
-            margin: 1rem 0;
-            transition: transform 0.3s;
+            transition: transform 0.2s;
+            cursor: pointer;
         }
-        .portfolio img:hover {
-            transform: scale(1.05);
+        .gallery img:hover {
+            transform: scale(1.1);
         }
-        .contact a {
-            color: #333;
-            text-decoration: none;
-            transition: text-decoration 0.3s;
+
+        /* Group 1, Group 2 和 Group 3 特殊样式 */
+        .group {
+            background-color: #ffeeba; /* 背景颜色 */
+            border: 2px solid #ff9800; /* 边框 */
+            padding: 20px; /* 内边距 */
+            border-radius: 10px; /* 圆角 */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* 阴影 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 动画效果 */
         }
-        .contact a:hover {
-            text-decoration: underline;
+        .group h2 {
+            font-size: 2rem; /* 大标题 */
+            color: #d84315; /* 标题颜色 */
+            text-align: center; /* 居中 */
         }
-        footer {
-            background: rgba(51, 51, 51, 0.8);
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            backdrop-filter: blur(5px);
+        .group .gallery {
+            padding: 20px;
+            background-color: #ffffff; /* 背景颜色 */
+            border-radius: 5px; /* 圆角 */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* 阴影 */
         }
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 0.5rem 0;
-            }
+        .group:hover {
+            transform: scale(1.05); /* 鼠标悬停放大 */
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); /* 增强阴影 */
+        }
+
+        /* 懒加载的图像占位符 */
+        .loading-placeholder {
+            width: 100%;
+            height: auto;
+            background-color: #ccc;
+        }
+
+        /* 回到顶部按钮 */
+        #back-to-top {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: url('top-icon.png') no-repeat center center;
+            background-size: contain;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        #back-to-top:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -112,45 +148,129 @@
         <h1>媚黑婊高潮区</h1>
     </header>
     <nav>
-        <a href="#about">关于婊子</a>
-        <a href="#portfolio">最爱作品集</a>
-        <a href="#contact">联系婊子</a>
+        <button class="toggle-button" onclick="toggleGroup('group1')">BBC_background</button>
+        <button class="toggle-button" onclick="toggleGroup('group2')">Blacked_clothing</button>
+        <button class="toggle-button" onclick="toggleGroup('group3')">Queen_of_spades</button>
     </nav>
     <div class="container">
-        <section id="about" class="section">
-            <h2>关于婊子</h2>
-            <p>你好！我是Qos_Slave，一个媚黑婊子。我对BBC(Big Black Cock)非常感兴趣。
-			    我的小穴里塞满了黑爹的精液</p>
-        </section>
-        <section id="portfolio" class="section">
-            <h2>最爱作品集</h2>
-            <p>以下是婊子喜欢的一些作品的展示：</p>
-            <div class="portfolio">
-                <img src="project1.jpg" alt="项目1">
-                <img src="project2.jpg" alt="项目2">
-				 <img src="project3.jpg" alt="项目3">
-                <img src="project4.jpg" alt="项目4">
-                <img src="project5.jpg" alt="项目5">
-                <img src="project6.jpg" alt="项目6">
-                <img src="project7.jpg" alt="项目7">
-				 <img src="project8.jpg" alt="项目8">
-				 <img src="project9.jpg" alt="项目9">
-				 <img src="project10.jpg" alt="项目10">
-				 <img src="project11.jpg" alt="项目11">
+        <section id="group1" class="section group">
+            <h2>BBC_background</h2>
+            <div class="gallery">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image1.jpg" class="lazy" alt="Image 1" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image2.jpg" class="lazy" alt="Image 2" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image3.jpg" class="lazy" alt="Image 3" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image4.jpg" class="lazy" alt="Image 4" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image5.jpg" class="lazy" alt="Image 5" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image6.jpg" class="lazy" alt="Image 6" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image7.jpg" class="lazy" alt="Image 7" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image8.jpg" class="lazy" alt="Image 8" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image9.jpg" class="lazy" alt="Image 9" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image10.jpg" class="lazy" alt="Image 10" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image11.jpg" class="lazy" alt="Image 11" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image12.jpg" class="lazy" alt="Image 12" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image13.jpg" class="lazy" alt="Image 13" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image14.jpg" class="lazy" alt="Image 14" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image15.jpg" class="lazy" alt="Image 15" onclick="openImage(this)">
             </div>
         </section>
-        <section id="contact" class="section">
-            <h2>联系婊子</h2>
-            <p>你可以通过以下方式联系婊子：</p>
-            <p>社交媒体: 
-                <a href="https://x.com/Qos_Slave798" target="_blank">  X  </a>
-            </p>
-        </section> 
+        <section id="group2" class="section group">
+            <h2>Blacked_clothing</h2>
+            <div class="gallery">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image16.jpg" class="lazy" alt="Image 16" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image17.jpg" class="lazy" alt="Image 17" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image18.jpg" class="lazy" alt="Image 18" onclick="openImage(this)">
+			     <img src="loading-placeholder.jpg" data-full="images/high-res-image19.jpg" class="lazy" alt="Image 19" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image20.jpg" class="lazy" alt="Image 20" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image21.jpg" class="lazy" alt="Image 21" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image22.jpg" class="lazy" alt="Image 22" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image23.jpg" class="lazy" alt="Image 23" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image24.jpg" class="lazy" alt="Image 24" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image25.jpg" class="lazy" alt="Image 25" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image26.jpg" class="lazy" alt="Image 26" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image27.jpg" class="lazy" alt="Image 27" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image28.jpg" class="lazy" alt="Image 28" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image29.jpg" class="lazy" alt="Image 29" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image30.jpg" class="lazy" alt="Image 30" onclick="openImage(this)">
+            </div>
+        </section>
+        <section id="group3" class="section group">
+            <h2>Queen_of_spades</h2>
+            <div class="gallery">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image31.jpg" class="lazy" alt="Image 31" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image32.jpg" class="lazy" alt="Image 32" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image33.jpg" class="lazy" alt="Image 33" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image34.jpg" class="lazy" alt="Image 34" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image35.jpg" class="lazy" alt="Image 35" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image36.jpg" class="lazy" alt="Image 36" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image37.jpg" class="lazy" alt="Image 37" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image38.jpg" class="lazy" alt="Image 38" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image39.jpg" class="lazy" alt="Image 39" onclick="openImage(this)">
+				 <img src="loading-placeholder.jpg" data-full="images/high-res-image40.jpg" class="lazy" alt="Image 40" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image41.jpg" class="lazy" alt="Image 41" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image42.jpg" class="lazy" alt="Image 42" onclick="openImage(this)">
+			     <img src="loading-placeholder.jpg" data-full="images/high-res-image43.jpg" class="lazy" alt="Image 43" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image44.jpg" class="lazy" alt="Image 44" onclick="openImage(this)">
+                <img src="loading-placeholder.jpg" data-full="images/high-res-image45.jpg" class="lazy" alt="Image 45" onclick="openImage(this)">
+            </div>
+        </section>
     </div>
-    <footer>
-        <p>&copy; 2024 婊子网页. 保留所有权利。</p>
-    </footer>
+    <button id="back-to-top" onclick="scrollToTop()"></button>
+
+    <script>
+        // 切换分组显示/隐藏
+        function toggleGroup(groupId) {
+            const group = document.getElementById(groupId);
+            if (group.classList.contains('visible')) {
+                group.classList.remove('visible');
+            } else {
+                group.classList.add('visible');
+                group.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 懒加载图片
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll("img.lazy");
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const lazyImage = entry.target;
+                        lazyImage.src = lazyImage.dataset.full;
+                        lazyImage.classList.remove('lazy');
+                        observer.unobserve(lazyImage);
+                    }
+                });
+            });
+
+            lazyImages.forEach(function(lazyImage) {
+                observer.observe(lazyImage);
+            });
+        });
+
+        // 打开图片链接
+        function openImage(img) {
+            const fullUrl = img.dataset.full;
+            window.open(fullUrl, '_blank');
+        }
+
+        // 平滑滚动到页面顶部
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 显示和隐藏“回到顶部”按钮
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
-
-<h2>New Content</h2>
