@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: url('spade-queen.png') repeat;
+            background-size: 200px 200px; /* 调整背景图像大小 */
+            background-color: rgba(255, 255, 255, 0.8); /* 增加浅淡效果 */
+            color: #333;
+            position: relative;
+            z-index: 1;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            opacity: 0.1; /* 调整背景透明度，使其浅淡 */
+            z-index: -1;
+        }
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background: rgba(68, 68, 68, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            backdrop-filter: blur(5px);
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f0c040;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        .section p {
+            margin: 1rem 0;
+        }
+        .portfolio img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #333;
+            margin: 1rem 0;
+            transition: transform 0.3s;
+        }
+        .portfolio img:hover {
+            transform: scale(1.05);
+        }
+        .contact a {
+            color: #333;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            backdrop-filter: blur(5px);
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>个人网页</h1>
+    </header>
+    <nav>
+        <a href="#about">关于我</a>
+        <a href="#portfolio">作品集</a>
+        <a href="#contact">联系我</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="section">
+            <h2>关于我</h2>
+            <p>你好！我是Qos_Slave，一个媚黑婊子。我对BBC(Big Black Cock)非常感兴趣。</p>
+        </section>
+        <section id="portfolio" class="section">
+            <h2>作品集</h2>
+            <p>以下是我一些作品的展示：</p>
+            <div class="portfolio">
+                <img src="project1.jpg" alt="项目1">
+                <img src="project2.jpg" alt="项目2">
+				 <img src="project3.jpg" alt="项目3">
+                <img src="project4.jpg" alt="项目4">
+                <img src="project5.jpg" alt="项目5">
+                
+                
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>联系我</h2>
+            <p>你可以通过以下方式联系我：</p>
+            <p>社交媒体: 
+                <a href="https://x.com/Qos_Slave798" target="_blank">  X  </a>
+            </p>
+        </section> 
+    </div>
+    <footer>
+        <p>&copy; 2024 个人网页. 保留所有权利。</p>
+    </footer>
+</body>
+</html>
+
